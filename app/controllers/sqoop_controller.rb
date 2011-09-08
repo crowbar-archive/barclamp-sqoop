@@ -1,5 +1,5 @@
 #
-# Cookbook Name: scoop
+# Cookbook Name: sqoop
 # Recipe: scoop_controller.rb
 #
 # Copyright (c) 2011 Dell Inc.
