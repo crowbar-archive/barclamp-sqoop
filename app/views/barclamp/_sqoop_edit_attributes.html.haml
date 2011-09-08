@@ -1,0 +1,67 @@
+
+%input#proposal_attributes{:type => "hidden", :name => "proposal_attributes", :value => @proposal.raw_data['attributes'][@proposal.barclamp].to_json}
+%p
+  %strong= t('.core_attributes')
+  = link_to "Raw", proposal_barclamp_path(:id => @proposal.name, :controller => @proposal.barclamp, :dep_raw => @dep_raw, :attr_raw => true), :style => "float: right;"
+  %div.container
+
+    %p
+      %label{ :for => :sqoop_default_fileformat }= t('.sqoop_default_fileformat')
+      %input#sqoop_default_fileformat{:type => "text", :name => "sqoop_default_fileformat", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_default_fileformat"], :onchange => "update_value('sqoop_default_fileformat', 'sqoop_default_fileformat', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_exec_compress_intermediate }= t('.sqoop_exec_compress_intermediate')
+      = select_tag :sqoop_exec_compress_intermediate, options_for_select([['true','true'], ['false', 'false']], "false"), :onchange => "update_value('sqoop_exec_compress_intermediate', 'sqoop_exec_compress_intermediate', 'boolean')"
+
+    %p
+      %label{ :for => :sqoop_exec_compress_output }= t('.sqoop_exec_compress_output')
+      = select_tag :sqoop_exec_compress_output, options_for_select([['true','true'], ['false', 'false']], "false"), :onchange => "update_value('sqoop_exec_compress_output', 'sqoop_exec_compress_output', 'boolean')"
+
+    %p
+      %label{ :for => :sqoop_exec_scratchdir }= t('.sqoop_exec_scratchdir')
+      %input#sqoop_exec_scratchdir{:type => "text", :name => "sqoop_exec_scratchdir", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_exec_scratchdir"], :onchange => "update_value('sqoop_exec_scratchdir', 'sqoop_exec_scratchdir', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_exec_script_maxerrsize }= t('.sqoop_exec_script_maxerrsize')
+      %input#sqoop_exec_script_maxerrsize{:type => "text", :name => "sqoop_exec_script_maxerrsize", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_exec_script_maxerrsize"], :onchange => "update_value('sqoop_exec_script_maxerrsize', 'sqoop_exec_script_maxerrsize', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_join_emit_interval }= t('.sqoop_join_emit_interval')
+      %input#sqoop_join_emit_interval{:type => "text", :name => "sqoop_join_emit_interval", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_join_emit_interval"], :onchange => "update_value('sqoop_join_emit_interval', 'sqoop_join_emit_interval', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_map_aggr }= t('.sqoop_map_aggr')
+      = select_tag :sqoop_map_aggr, options_for_select([['true','true'], ['false', 'false']], "false"), :onchange => "update_value('sqoop_map_aggr', 'sqoop_map_aggr', 'boolean')"
+
+    %p
+      %label{ :for => :sqoop_metastore_connect_retries }= t('.sqoop_metastore_connect_retries')
+      %input#sqoop_metastore_connect_retries{:type => "text", :name => "sqoop_metastore_connect_retries", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_metastore_connect_retries"], :onchange => "update_value('sqoop_metastore_connect_retries', 'sqoop_metastore_connect_retries', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_metastore_local }= t('.sqoop_metastore_local')
+      = select_tag :sqoop_metastore_local, options_for_select([['true','true'], ['false', 'false']], "true"), :onchange => "update_value('sqoop_metastore_local', 'sqoop_metastore_local', 'boolean')"
+
+    %p
+      %label{ :for => :sqoop_metastore_metadb_dir }= t('.sqoop_metastore_metadb_dir')
+      %input#sqoop_metastore_metadb_dir{:type => "text", :name => "sqoop_metastore_metadb_dir", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_metastore_metadb_dir"], :onchange => "update_value('sqoop_metastore_metadb_dir', 'sqoop_metastore_metadb_dir', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_metastore_rawstore_impl }= t('.sqoop_metastore_rawstore_impl')
+      %input#sqoop_metastore_rawstore_impl{:type => "text", :name => "sqoop_metastore_rawstore_impl", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_metastore_rawstore_impl"], :onchange => "update_value('sqoop_metastore_rawstore_impl', 'sqoop_metastore_rawstore_impl', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_metastore_uris }= t('.sqoop_metastore_uris')
+      %input#sqoop_metastore_uris{:type => "text", :name => "sqoop_metastore_uris", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_metastore_uris"], :onchange => "update_value('sqoop_metastore_uris', 'sqoop_metastore_uris', 'string')"}
+
+    %p
+      %label{ :for => :sqoop_metastore_warehouse_dir }= t('.sqoop_metastore_warehouse_dir')
+      %input#sqoop_metastore_warehouse_dir{:type => "text", :name => "sqoop_metastore_warehouse_dir", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["sqoop_metastore_warehouse_dir"], :onchange => "update_value('sqoop_metastore_warehouse_dir', 'sqoop_metastore_warehouse_dir', 'string')"}
+
+    %p
+      %label{ :for => :javax_jdo_option_ConnectionDriverName }= t('.javax_jdo_option_ConnectionDriverName')
+      %input#javax_jdo_option_ConnectionDriverName{:type => "text", :name => "javax_jdo_option_ConnectionDriverName", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["javax_jdo_option_ConnectionDriverName"], :onchange => "update_value('javax_jdo_option_ConnectionDriverName', 'javax_jdo_option_ConnectionDriverName', 'string')"}
+
+    %p
+      %label{ :for => :javax_jdo_option_ConnectionURL }= t('.javax_jdo_option_ConnectionURL')
+      %input#javax_jdo_option_ConnectionURL{:type => "text", :name => "javax_jdo_option_ConnectionURL", :'data-default' => @proposal.raw_data['attributes'][@proposal.barclamp]["javax_jdo_option_ConnectionURL"], :onchange => "update_value('javax_jdo_option_ConnectionURL', 'javax_jdo_option_ConnectionURL', 'string')"}
+  

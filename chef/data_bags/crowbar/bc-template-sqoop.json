@@ -1,0 +1,46 @@
+{
+  "id": "bc-template-sqoop",
+  "description": "SQL based command-line tool to assist with HDFS data import/export (SQL-to-Hadoop).",
+  "attributes": {
+    "sqoop": {
+      "debug": true,
+	  "admin_ip_eval": "Chef::Recipe::Barclamp::Inventory.get_network_by_type(node, \"admin\").address",
+      "admin_interface_eval": "Chef::Recipe::Barclamp::Inventory.get_network_by_type(node, \"admin\").interface",
+      "sqoop_default_fileformat": "TextFile",
+      "sqoop_exec_compress_intermediate": "false",
+      "sqoop_exec_compress_output": "false",
+      "sqoop_exec_scratchdir": "/tmp/sqoop-${user.name}",
+      "sqoop_exec_script_maxerrsize": "100000",
+      "sqoop_join_emit_interval": "1000",
+      "sqoop_map_aggr": "false",
+      "sqoop_metastore_connect_retries": "5",
+      "sqoop_metastore_local": "true",
+      "sqoop_metastore_metadb_dir": "file:///var/metastore/metadb/",
+      "sqoop_metastore_rawstore_impl": "org.apache.sqoop.sqoop.metastore.ObjectStore",
+      "sqoop_metastore_uris": "file:///var/metastore/metadb/",
+      "sqoop_metastore_warehouse_dir": "/user/sqoop/warehouse",
+      "javax_jdo_option_ConnectionDriverName": "org.apache.derby.jdbc.EmbeddedDriver",
+      "javax_jdo_option_ConnectionURL": "jdbc:derby:;databaseName=metastore_db;create=true"
+    }
+  },
+  "deployment": {
+    "sqoop": {
+      "crowbar-revision": 0,
+      "elements": {},
+      "element_order": [
+        [
+         "sqoop-interpreter"
+        ]
+      ],
+      "config": {
+        "environment": "sqoop-base-config",
+        "mode": "full",
+        "transitions": true,
+        "transition_list": [
+          "installed"
+        ]
+      } 
+    }
+  }
+}
+
