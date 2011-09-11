@@ -15,21 +15,15 @@
             "debug":  { "type": "bool", "required": true},
             "admin_ip_eval": { "type": "str", "required": true },
             "admin_interface_eval": { "type": "str", "required": true },
-            "sqoop_default_fileformat": { "type": "str", "required": true},
-            "sqoop_exec_compress_intermediate": { "type": "str", "required": true},
-            "sqoop_exec_compress_output": { "type": "str", "required": true},
-            "sqoop_exec_scratchdir": { "type": "str", "required": true},
-            "sqoop_exec_script_maxerrsize": { "type": "str", "required": true},
-            "sqoop_join_emit_interval": { "type": "str", "required": true},
-            "sqoop_map_aggr": { "type": "str", "required": true},
-            "sqoop_metastore_connect_retries": { "type": "str", "required": true},
-            "sqoop_metastore_local": { "type": "str", "required": true},
-            "sqoop_metastore_metadb_dir": { "type": "str", "required": true},
-            "sqoop_metastore_rawstore_impl": { "type": "str", "required": true},
-            "sqoop_metastore_uris": { "type": "str", "required": true},
-            "sqoop_metastore_warehouse_dir": { "type": "str", "required": true},
-            "javax_jdo_option_ConnectionDriverName": { "type": "str", "required": true},
-            "javax_jdo_option_ConnectionURL": { "type": "str", "required": true}
+            "sqoop_connection_factories": { "type": "str", "required": true},
+            "sqoop_tool_plugins": { "type": "str", "required": false},
+            "sqoop_metastore_client_enable_autoconnect": { "type": "str", "required": true},
+            "sqoop_metastore_client_autoconnect_url": { "type": "str", "required": true},
+            "sqoop_metastore_client_autoconnect_username": { "type": "str", "required": true},
+            "sqoop_metastore_client_autoconnect_password": { "type": "str", "required": false},
+            "sqoop_metastore_client_record_password": { "type": "str", "required": true},
+            "sqoop_metastore_server_location": { "type": "str", "required": true},
+            "sqoop_metastore_server_port": { "type": "str", "required": true}            
           } 
         }
       }

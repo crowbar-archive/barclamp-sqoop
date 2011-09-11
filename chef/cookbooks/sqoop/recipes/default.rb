@@ -27,7 +27,7 @@ Chef::Log.info("BEGIN sqoop") if debug
 env_filter = " AND environment:#{node[:sqoop][:config][:environment]}"
 
 # Install the sqoop base package.
-package "hadoop-sqoop" do
+package "sqoop" do
   action :install
 end
 
