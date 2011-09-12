@@ -37,7 +37,9 @@
     is unset.
   -->
 
-  <!--
+<% if node[:sqoop][:sqoop_connection_factories].nil? or node[:sqoop][:sqoop_connection_factories].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.connection.factories</name>
     <value><%= node[:sqoop][:sqoop_connection_factories] %></value>
@@ -46,7 +48,9 @@
       to drive connections to databases.
     </description>
   </property>
-  -->
+<% if node[:sqoop][:sqoop_connection_factories].nil? or node[:sqoop][:sqoop_connection_factories].empty? -%>
+  --> 
+<% end -%>
 
   <!--
     Set the value of this property to enable third-party tools.
@@ -60,7 +64,9 @@
     is unset.
   -->
 
-  <!--
+<% if node[:sqoop][:sqoop_tool_plugins].nil? or node[:sqoop][:sqoop_tool_plugins].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.tool.plugins</name>
     <value><%= node[:sqoop][:sqoop_tool_plugins] %></value>
@@ -69,7 +75,9 @@
       allow third-party tools to be used.
     </description>
   </property>
-  -->
+<% if node[:sqoop][:sqoop_tool_plugins].nil? or node[:sqoop][:sqoop_tool_plugins].empty? -%>
+  --> 
+<% end -%>
 
   <!--
     By default, the Sqoop metastore will auto-connect to a local embedded
@@ -77,7 +85,9 @@
     this next property.
   -->
   
-  <!--
+<% if node[:sqoop][:sqoop_metastore_client_enable_autoconnect].nil? or node[:sqoop][:sqoop_metastore_client_enable_autoconnect].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.client.enable.autoconnect</name>
     <value><%= node[:sqoop][:sqoop_metastore_client_enable_autoconnect] %></value>
@@ -85,8 +95,13 @@
       when no other metastore arguments are provided.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_client_enable_autoconnect].nil? or node[:sqoop][:sqoop_metastore_client_enable_autoconnect].empty? -%>
   -->
+<% end -%>
 
+<% if node[:sqoop][:sqoop_metastore_client_autoconnect_url].nil? or node[:sqoop][:sqoop_metastore_client_autoconnect_url].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.client.autoconnect.url</name>
     <value><%= node[:sqoop][:sqoop_metastore_client_autoconnect_url] %></value>
@@ -95,28 +110,41 @@
       different path here.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_client_autoconnect_url].nil? or node[:sqoop][:sqoop_metastore_client_autoconnect_url].empty? -%>
+  -->
+<% end -%>
 
   <!--
     The auto-connect metastore is stored in ~/.sqoop/. Uncomment
     these next arguments to control the auto-connect process with
     greater precision.
   -->
-  
-  <!--
+
+<% if node[:sqoop][:sqoop_metastore_client_autoconnect_username].nil? or node[:sqoop][:sqoop_metastore_client_autoconnect_username].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.client.autoconnect.username</name>
     <value><%= node[:sqoop][:sqoop_metastore_client_autoconnect_username] %></value>
     <description>The username to bind to the metastore.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_client_autoconnect_username].nil? or node[:sqoop][:sqoop_metastore_client_autoconnect_username].empty? -%>
+  -->
+<% end -%>
 
+<% if node[:sqoop][:sqoop_metastore_client_autoconnect_password].nil? or node[:sqoop][:sqoop_metastore_client_autoconnect_password].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.client.autoconnect.password</name>
     <value><%= node[:sqoop][:sqoop_metastore_client_autoconnect_password] %></value>
     <description>The password to bind to the metastore.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_client_autoconnect_password].nil? or node[:sqoop][:sqoop_metastore_client_autoconnect_password].empty? -%>
   -->
+<% end -%>
 
   <!--
     For security reasons, by default your database password will not be stored in
@@ -125,14 +153,18 @@
     password storage. (INSECURE!)
   -->
 
-  <!--
+<% if node[:sqoop][:sqoop_metastore_client_record_password].nil? or node[:sqoop][:sqoop_metastore_client_record_password].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.client.record.password</name>
     <value><%= node[:sqoop][:sqoop_metastore_client_record_password] %></value>
     <description>If true, allow saved passwords in the metastore.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_client_record_password].nil? or node[:sqoop][:sqoop_metastore_client_record_password].empty? -%>
   -->
+<% end -%>
 
   <!--
     SERVER CONFIGURATION: If you plan to run a Sqoop metastore on this machine,
@@ -143,7 +175,9 @@
        jdbc:hsqldb:hsql://&lt;server-name&gt;:&lt;port&gt;/sqoop
   -->
 
-  <!--
+<% if node[:sqoop][:sqoop_metastore_server_location].nil? or node[:sqoop][:sqoop_metastore_server_location].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.server.location</name>
     <value><%= node[:sqoop][:sqoop_metastore_server_location] %></value>
@@ -151,13 +185,21 @@
       will be placed in ~/.sqoop/.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_server_location].nil? or node[:sqoop][:sqoop_metastore_server_location].empty? -%>
+  -->
+<% end -%>
 
+<% if node[:sqoop][:sqoop_metastore_server_port].nil? or node[:sqoop][:sqoop_metastore_server_port].empty? -%>
+  <!-- VALUE NOT SET IN CROWBAR PROPOSAL - USING DEFAULT
+<% end -%>
   <property>
     <name>sqoop.metastore.server.port</name>
     <value><%= node[:sqoop][:sqoop_metastore_server_port] %></value>
     <description>Port that this metastore should listen on.
     </description>
   </property>
+<% if node[:sqoop][:sqoop_metastore_server_port].nil? or node[:sqoop][:sqoop_metastore_server_port].empty? -%>
   -->
+<% end -%>
 
 </configuration>

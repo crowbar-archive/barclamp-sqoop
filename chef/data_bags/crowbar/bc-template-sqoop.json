@@ -4,17 +4,15 @@
   "attributes": {
     "sqoop": {
       "debug": true,
-	  "admin_ip_eval": "Chef::Recipe::Barclamp::Inventory.get_network_by_type(node, \"admin\").address",
-      "admin_interface_eval": "Chef::Recipe::Barclamp::Inventory.get_network_by_type(node, \"admin\").interface",
-        "sqoop_connection_factories": "com.cloudera.sqoop.manager.DefaultManagerFactory",
-        "sqoop_tool_plugins": "",
-        "sqoop_metastore_client_enable_autoconnect": "false",
-        "sqoop_metastore_client_autoconnect_url": "jdbc:hsqldb:file:/tmp/sqoop-meta/meta.db;shutdown=true",
-        "sqoop_metastore_client_autoconnect_username": "SA",
-        "sqoop_metastore_client_autoconnect_password": "",
-        "sqoop_metastore_client_record_password": "true",
-        "sqoop_metastore_server_location": "/tmp/sqoop-metastore/shared.db",
-        "sqoop_metastore_server_port": "16000"
+      "sqoop_connection_factories": "",
+      "sqoop_tool_plugins": "",
+      "sqoop_metastore_client_enable_autoconnect": "true",
+      "sqoop_metastore_client_autoconnect_url": "",
+      "sqoop_metastore_client_autoconnect_username": "",
+      "sqoop_metastore_client_autoconnect_password": "",
+      "sqoop_metastore_client_record_password": "",
+      "sqoop_metastore_server_location": "",
+      "sqoop_metastore_server_port": ""
     }
   },
   "deployment": {

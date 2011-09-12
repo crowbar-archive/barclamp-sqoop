@@ -24,3 +24,7 @@
 default[:sqoop][:config] = {}
 default[:sqoop][:config][:environment] = "sqoop-config-default"
 default[:sqoop][:debug] = true
+
+# File system ownership settings.
+default[:sqoop][:process_file_system_owner] = "root"
+default[:sqoop][:global_file_system_group] = "hadoop"

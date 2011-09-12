@@ -31,6 +31,14 @@ package "sqoop" do
   action :install
 end
 
+# Update the configuration file.
+template "/etc/sqoop/conf/sqoop-site.xml" do
+  owner node[:sqoop][:process_file_system_owner]
+  group node[:sqoop][:global_file_system_group]
+  mode "0644"
+  source "sqoop-site.xml.erb"
+end
+
 #######################################################################
 # End of recipe transactions
 #######################################################################
