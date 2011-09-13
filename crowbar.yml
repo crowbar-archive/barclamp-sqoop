@@ -29,5 +29,14 @@ locale_additions:
     barclamp:
       sqoop_edit_attributes: 
         attributes: Attributes
+        sqoop_connection_factories: Connection Factories
+        sqoop_tool_plugins: Tool Plugins
+        sqoop_metastore_client_enable_autoconnect: Metastore Client Enable Autoconnect
+        sqoop_metastore_client_autoconnect_url: Metastore Client Autoconnect URL
+        sqoop_metastore_client_autoconnect_username: Metastore Client Autoconnect Username
+        sqoop_metastore_client_autoconnect_password: Metastore Client Autoconnect Password
+        sqoop_metastore_client_record_password: Metastore Client Record Password
+        sqoop_metastore_server_location: Metastore Server Location
+        sqoop_metastore_server_port: Metastore Server Port
       sqoop_edit_deployment: 
         deployment: Deployment
