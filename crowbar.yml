@@ -41,3 +41,7 @@ locale_additions:
           sqoop_metastore_server_port: Metastore Server Port
         edit_deployment: 
           deployment: Deployment
+
+rpms:
+  pkgs:
+    - sqoop
