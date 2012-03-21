@@ -23,7 +23,6 @@ barclamp:
     - hadoop
   member:
     - hadoop
-    - clouderamanager
 
 crowbar:
   layout: 1
