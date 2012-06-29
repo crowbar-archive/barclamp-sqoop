@@ -35,7 +35,7 @@ class SqoopService < ServiceObject
     nodes.delete_if { |n| n.nil? }
     
     # Find all hadoop edge nodes.
-    edge_nodes = nodes.find_all { |n| n.role? "hadoop-edgenode" }
+    edge_nodes = nodes.find_all { |n| n.role? "hadoop-edgenode" or n.role? "clouderamanager-edgenode" }
     edge_fqdns = Array.new
     edge_nodes.each { |x|
       next if x.nil?
