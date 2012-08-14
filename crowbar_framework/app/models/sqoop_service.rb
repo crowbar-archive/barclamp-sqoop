@@ -2,7 +2,7 @@
 # Cookbook Name: sqoop
 # Recipe: sqoop_service.rb
 #
-# Copyright (c) 2011 Dell Inc.
+# Copyright (c) 2012 Dell Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,32 +21,31 @@
 
 class SqoopService < ServiceObject
   
-  def initialize(thelogger)
-    @bc_name = "sqoop"
-    @logger = thelogger
-  end
-  
   def create_proposal
     @logger.debug("sqoop create_proposal: entering")
     base = super
     
-    # Get the node list.
-    nodes = NodeObject.all
-    nodes.delete_if { |n| n.nil? }
-    
     # Find all hadoop edge nodes.
-    edge_nodes = nodes.find_all { |n| n.role? "hadoop-edgenode" or n.role? "clouderamanager-edgenode" }
-    edge_fqdns = Array.new
-    edge_nodes.each { |x|
-      next if x.nil?
-      edge_fqdns << x[:fqdn] if !x[:fqdn].nil? && !x[:fqdn].empty? 
-    }
-    
+    edge_nodes = []
+    hadoop = Barclamp.find_by_name("hadoop")
+    if hadoop
+      hadoop.proposals.each do |p|
+        edge_nodes << p.current_config.get_nodes_by_role("hadoop-edgenode")
+      end
+    end
+    clouderamanager = Barclamp.find_by_name("clouderamanager")
+    if clouderamanager
+      clouderamanager.proposals.each do |p|
+        edge_nodes << p.current_config.get_nodes_by_role("clouderamanager-edgenode")
+      end
+    end
+    edge_nodes = edge_nodes.flatten
+
     # Check for errors or add the proposal elements
-    base["deployment"]["sqoop"]["elements"] = { } 
-    if !edge_fqdns.nil? && edge_fqdns.length > 0 
-      # @logger.info("GOT EDGE " + edge_fqdns.to_s)
-      base["deployment"]["sqoop"]["elements"]["sqoop-interpreter"] = edge_fqdns 
+    if !edge_fqdns.nil? && edge_fqdns.length > 0
+      edge_nodes.each do |n|
+        add_role_to_instance_and_node(n.name, base.name, "sqoop-interpreter")
+      end
     else
       @logger.debug("sqoop create_proposal: No edge nodes found, proposal bind failed")
     end
