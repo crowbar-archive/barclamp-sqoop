@@ -20,8 +20,5 @@
 #
 
 class SqoopController < BarclampController
-  def initialize
-    @service_object = SqoopService.new logger
-  end
 end
 

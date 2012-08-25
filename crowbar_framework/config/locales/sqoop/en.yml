@@ -1,0 +1,31 @@
+# Copyright 2012, Dell, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+en:
+  barclamp:
+    sqoop:
+      edit_attributes: 
+        attributes: Attributes
+        sqoop_connection_factories: Connection Factories
+        sqoop_tool_plugins: Tool Plugins
+        sqoop_metastore_client_enable_autoconnect: Metastore Client Enable Autoconnect
+        sqoop_metastore_client_autoconnect_url: Metastore Client Autoconnect URL
+        sqoop_metastore_client_autoconnect_username: Metastore Client Autoconnect Username
+        sqoop_metastore_client_autoconnect_password: Metastore Client Autoconnect Password
+        sqoop_metastore_client_record_password: Metastore Client Record Password
+        sqoop_metastore_server_location: Metastore Server Location
+        sqoop_metastore_server_port: Metastore Server Port
+      edit_deployment: 
+        deployment: Deployment
