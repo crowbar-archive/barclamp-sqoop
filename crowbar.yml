@@ -20,7 +20,7 @@ barclamp:
   display: Sqoop
   version: 0
   requires:
-    - hadoop
+    - clouderamanager
   member:
     - apachehadoop
 
