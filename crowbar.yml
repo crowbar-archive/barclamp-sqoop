@@ -23,6 +23,9 @@ barclamp:
     - clouderamanager
   member:
     - apachehadoop
+  os_support:
+    - redhat-6.2
+    - centos-6.2
 
 crowbar:
   layout: 2
