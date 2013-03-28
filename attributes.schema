@@ -1,0 +1,22 @@
+{
+    "type": "map",
+    "required": true,
+    "mapping": {
+	"sqoop": {
+	    "type": "map",
+	    "required": true,
+	    "mapping": {
+		"debug":  { "type": "bool", "required": true},
+		"sqoop_connection_factories": { "type": "str", "required": false},
+		"sqoop_tool_plugins": { "type": "str", "required": false},
+		"sqoop_metastore_client_enable_autoconnect": { "type": "str", "required": true},
+		"sqoop_metastore_client_autoconnect_url": { "type": "str", "required": false},
+		"sqoop_metastore_client_autoconnect_username": { "type": "str", "required": false},
+		"sqoop_metastore_client_autoconnect_password": { "type": "str", "required": false},
+	        "sqoop_metastore_client_record_password": { "type": "str", "required": false},
+		"sqoop_metastore_server_location": { "type": "str", "required": false},
+		"sqoop_metastore_server_port": { "type": "str", "required": false}
+	    }
+	}
+    }
+}
