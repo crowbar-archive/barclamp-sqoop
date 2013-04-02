@@ -15,6 +15,9 @@
       "sqoop_metastore_server_port": ""
     }
   },
+    "roles": {
+        "sqoop-interpreter": { "jig": "chef" }
+    },
   "deployment": {
     "sqoop": {
       "crowbar-revision": 0,
